@@ -22,14 +22,103 @@
  *  @param {number} len  //  the length of the truncated string
  *  @returns {string} //   the truncated string
  */
-  module.exports.limit = (st, len) => { return st.substring(0, len-1); }
+module.exports.limit = (st, len) => { return st.substring(0, len); }
 
-  /** Returns the original string truncated to a given value
+/** Returns the number of instances of a target string in the original string
  * 
- *  Substrings from 0 to the new length-1
+ *  Iterates through the string looking for a substring that matches the target
  * 
  *  @param {string} st  //  the original string
- *  @param {number} len  //  the length of the truncated string
- *  @returns {string} //   the truncated string
+ *  @param {string} target  //  the target string
+ *  @returns {number} //   the number of target strings in the original string
  */
-   module.exports.numberOf = (st, len) => { return st.substring(0, len-1); }
+module.exports.numberOf = (st, target) => { 
+  let count = 0;
+  for (let i = 0; i< st.length; i++) {
+    if (st.substring(i, i+target.length) == target) {
+      count++;
+    }
+  }
+  return count; 
+}
+
+/** Returns the start and end characters of a string
+ * 
+ *  Substrings from the last character to the length and the first index to the second index and adds them together
+ * 
+ *  @param {string} st  //  the original string
+ *  @returns {string} //   the start and end characters put together in a string
+ */
+ module.exports.startEnd = (st) => { return st.substring(0, 1)+st.substring(st.length-1, st.length); }
+
+ /** Returns the string with the replaced parts from a certain index
+ * 
+ *  Substrings all the unwanted parts out, replaces the string, then adds them together
+ * 
+ *  @param {string} st  //  the original string
+ *  @param {string} original  //  the original words or phrases
+ *  @param {string} replace  //  the replacing string
+ *  @param {number} start  //  the start index
+ *  @param {number} end  //  the end index+1
+ *  @returns {string} //   the new string
+ */
+module.exports.replaceFrom = (st, original, replace, start, end) => { 
+  return st.substring(0, start)+st.substring(start, end).replaceAll(original, replace)+st.substring(end, st.length);  
+}
+
+/** Returns string with the inserted string
+ * 
+ *  Substrings all the uninserted parts out, puts in the string, then adds them together
+ * 
+ *  @param {string} st  //  the original string
+ *  @param {string} insert  //  the word to be inserted
+ *  @param {number} index  //  the index of the location to be inserted
+ *  @returns {string} //   the new string
+ */
+module.exports.insert = (st, insert, index) => { return st.substring(0, index)+insert+st.substring(insert.length+index, st.length); }
+
+/** Returns the string with the character at the index deleted
+ * 
+ *  Substrings all the unneeded parts out, deletes the character, then adds them together
+ * 
+ *  @param {string} st  //  the original string
+ *  @param {number} index  //  the index of the location to be deleted
+ *  @returns {string} //   the new string
+ */
+ module.exports.deleteCharAt = (st, index) => { return st.substring(0, index)+st.substring(index+1, st.length); }
+
+ /** Returns the number of vowels
+ * 
+ *  Iterates through the string and checks if the character is a vowel
+ * 
+ *  @param {string} st  //  the original string
+ *  @returns {number} //   the number of vowels
+ */
+module.exports.countVowels = (st) => { 
+  let count = 0;
+  for (let i = 0; i< st.length; i++) {
+    if (st.charAt(i) == 'a' || st.charAt(i) == 'e' || st.charAt(i) == 'i' || st.charAt(i) == 'o' || st.charAt(i) == 'u') {
+      count++;
+    }
+  }
+  return count; 
+}
+
+/** Returns the number of consonants
+ * 
+ *  Iterates through the string and checks if the character is a consonant
+ * 
+ *  @param {string} st  //  the original string
+ *  @returns {number} //   the number of consonants
+ */
+module.exports.countConsonants = (st) => { 
+  let count = 0;
+  for (let i = 0; i< st.length; i++) {
+    if (st.charAt(i) == 'a' || st.charAt(i) == 'e' || st.charAt(i) == 'i' || st.charAt(i) == 'o' || st.charAt(i) == 'u') {
+      continue;
+    }qwer weipFNDOPfno;l asiogbkl dil k
+    else
+      count++;
+  }
+   return count; 
+}
