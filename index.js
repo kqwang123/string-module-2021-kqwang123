@@ -96,6 +96,7 @@ module.exports.insert = (st, insert, index) => { return st.substring(0, index)+i
  */
 module.exports.countVowels = (st) => { 
   let count = 0;
+  st = st.toLowerCase();
   for (let i = 0; i< st.length; i++) {
     if (st.charAt(i) == 'a' || st.charAt(i) == 'e' || st.charAt(i) == 'i' || st.charAt(i) == 'o' || st.charAt(i) == 'u') {
       count++;
@@ -113,12 +114,28 @@ module.exports.countVowels = (st) => {
  */
 module.exports.countConsonants = (st) => { 
   let count = 0;
+  st = st.toLowerCase();
   for (let i = 0; i< st.length; i++) {
-    if (st.charAt(i) == 'a' || st.charAt(i) == 'e' || st.charAt(i) == 'i' || st.charAt(i) == 'o' || st.charAt(i) == 'u') {
-      continue;
-    }qwer weipFNDOPfno;l asiogbkl dil k
-    else
+    if (st.charAt(i) == 'b' || st.charAt(i) == 'c' || st.charAt(i) == 'd' || st.charAt(i) == 'f' || st.charAt(i) == 'g' || st.charAt(i) == 'h' || st.charAt(i) == 'j' 
+    || st.charAt(i) == 'k' || st.charAt(i) == 'l' || st.charAt(i) == 'm' || st.charAt(i) == 'n' || st.charAt(i) == 'p' || st.charAt(i) == 'q' || st.charAt(i) == 'r'
+    || st.charAt(i) == 's' || st.charAt(i) == 't' || st.charAt(i) == 'v' || st.charAt(i) == 'w' || st.charAt(i) == 'x' || st.charAt(i) == 'y' || st.charAt(i) == 'z')
       count++;
   }
    return count; 
 }
+
+/** Returns the string in reverse
+ * 
+ *  Iterates through the string reverse and builds a new string
+ * 
+ *  @param {string} st  //  the original string
+ *  @returns {number} //   the reversed string
+ */
+module.exports.reverse = (st) => { 
+  let reversed = "";
+  for (let i = st.length-1; i>=0; i--) {
+    reversed += st.charAt(i);
+  }
+  return reversed; 
+}
+  
